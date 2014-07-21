@@ -1,28 +1,11 @@
-== README
+Дано:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Дамп БД в SQL (см. вложение).
+* СУБД - PostgreSQL.
+* Модели в файле models.rb (см. вложение).
+* Ожидаемое реальное количество товаров в выборке > 100 000.
+* Требование к быстродействию результата: ~100 мс при указанном объеме товаров.
 
-Things you may want to cover:
+Задание:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Добавить в модель Product метод, возвращающий для self 6 наиболее похожих товаров. Степень "похожести" определяется по количеству совпадений значений свойств (Property) следующих типов: UID_CHOICE = 4, UID_INTEGER = 2, UID_BOOLEAN = 5. У какого товара больше совпадений, тот и более похож, все типы равноценны. Значения свойств хранятся в таблице product_properties. Список свойств, значения которых учитываются, берется из таксона: taxon.properties.
