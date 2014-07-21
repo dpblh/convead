@@ -1,0 +1,30 @@
+<p id="notice"><%= @timesql %></p>
+<h1>Listing products</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= link_to 'Show', product %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% if current_page?(action: :index) %>
+  <%= link_to 'back', products_path %>
+<% else %>
+  <%= link_to 'back', product_path %>
+<% end %>
+

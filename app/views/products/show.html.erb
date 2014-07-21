@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<form class="form-inline">
+	<h3><%= @product.name %></h3>
+	<%= link_to 'Show similar', similar_product_path(@product) %>
+</form>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<td>name</td>
+			<td>num_value</td>
+			<td><bool_value/td>
+			<td>possible_value</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% @product.product_properties.each do |product_property| %>
+    		<tr>
+    			<td><%= product_property.property.name if product_property.property %></td>
+    			<td><%= product_property.num_value %></td>
+    			<td><%= product_property.bool_value %></td>
+    			<td><%= product_property.possible_value.value if product_property.possible_value %></td>
+    		</tr>
+		<% end %>
+	</tbody>
+</table>
+
