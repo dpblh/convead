@@ -1,6 +1,4 @@
 require './config/environment.rb'
-prop = Property.all
-print 'start'
 
 def generate
 begin
